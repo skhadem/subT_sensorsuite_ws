@@ -1,0 +1,9 @@
+- git:
+    local-name: serial
+    uri: https://github.com/wjwwood/serial.git
+- git:
+    local-name: sweep-ros
+    uri: https://github.com/scanse/sweep-ros.git
+- git:
+    local-name: ti_mmwave_rospkg
+    uri: https://github.com/arpg/ti_mmwave_rospkg.git

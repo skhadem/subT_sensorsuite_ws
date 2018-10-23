@@ -1,0 +1,8 @@
+prefix=/home/arpglab/radar_ws/install
+
+Name: ti_mmwave_rospkg
+Description: Description of ti_mmwave_rospkg
+Version: 1.4.0
+Cflags: -I/home/arpglab/radar_ws/install/include
+Libs: -L/home/arpglab/radar_ws/install/lib -lmmwave
+Requires: 
