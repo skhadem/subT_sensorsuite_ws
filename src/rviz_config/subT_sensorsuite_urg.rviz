@@ -69,9 +69,9 @@ Visualization Manager:
       Enabled: true
       Invert Rainbow: false
       Max Color: 255; 255; 255
-      Max Intensity: 32.0601578
+      Max Intensity: 27.6641293
       Min Color: 0; 0; 255
-      Min Intensity: 12.7875357
+      Min Intensity: 15.3147888
       Name: PointCloud2
       Position Transformer: XYZ
       Queue Size: 10
@@ -149,7 +149,7 @@ Visualization Manager:
       Queue Size: 10
       Selectable: true
       Size (Pixels): 3
-      Size (m): 0.00999999978
+      Size (m): 0.0149999997
       Style: Spheres
       Topic: /scan
       Unreliable: false

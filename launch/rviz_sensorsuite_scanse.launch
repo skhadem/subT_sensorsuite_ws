@@ -4,9 +4,10 @@
 
 <launch>
 
+  <!-- set default for ti_mmwave_rospkg args -->
   <arg name="config" default="best_range_res"/>
 
-  <!-- Call mmWave sensor launch file -->
+  <!-- launch TI mmWave sensor node -->
   <include file="$(find ti_mmwave_rospkg)/launch/ti_mmwave_sensor.launch">
     <arg name="device" value="1642" doc="TI mmWave sensor device type [1443, 1642]"/>
     <arg name="config" value="$(arg config)"/>
@@ -17,8 +18,7 @@
   <!-- Static transform from map to base_radar_link for visualization of stand-alone mmWave sensor using Rviz -->
   <node pkg="tf" type="static_transform_publisher" name="static_tf_map_to_base_radar_link" args="0 0 0 0 0 0 map base_radar_link 10"/>
 
-
-  <!-- scanse lidar launch -->
+  <!-- launch Scanse LiDAR node -->
   <node name="sweep_node"	pkg="sweep_ros"  type="sweep_node" output="screen">
   	<param name="serial_port"         type="string" value="/dev/ttyUSB0"/>
   	<param name="serial_baudrate"     type="int"    value="115200"/>
@@ -26,10 +26,10 @@
   	<param name="rotation_speed"	  type="int" value="5"/>
   </node>
 
-  <!-- Static transform from map to base_radar_link for visualization of stand-alone mmWave sensor using Rviz -->
+  <!-- Static transform from map to laser_frame for visualization using Rviz -->
   <node pkg="tf" type="static_transform_publisher" name="static_tf_map_to_base_laser_link" args="0 0 0 0 0 0 map laser_frame 5"/>
 
-  <!-- realsense camera launch -->
+  <!-- launch realsense camera node -->
   <include file="$(find realsense2_camera)/launch/rs_camera.launch">
     <arg name="enable_pointcloud" value="true"/>
   </include>
@@ -39,7 +39,5 @@
 
   <!-- Launch Rviz with pre-defined configuration to view all three outputs -->
   <node pkg="rviz" type="rviz" name="rviz" args="-d $(find rviz_config)/subT_sensorsuite_scanse.rviz"/>
-
-  <!--param name="use_sim_time" value="true" -->
 
 </launch>
