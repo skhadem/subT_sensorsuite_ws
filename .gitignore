@@ -1,4 +1,8 @@
-src/
+src/realsense2_camera
+src/serial
+src/ti_mmwave_rospkg
+src/sweep_ros
+src/urg_node
 build/
 devel/
 imgui.ini
