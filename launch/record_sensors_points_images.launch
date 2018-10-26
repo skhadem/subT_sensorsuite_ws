@@ -1,0 +1,4 @@
+<launch>
+    <node pkg="rosbag" type="record" name="record_sensors"
+      args="record -O /home/carl/ROS/subT_sensorsuite_ws/bag/$(arg name) /tf /tf_static /mmWaveDataHdl/RScan /scan /camera/depth/color/points /camera/color/camera_info /camera/color/image_raw /camera/depth/camera_info /camera/depth/camera_info /camera/depth/image_rect_raw /camera/extrinsics/depth_to_color" />
+</launch>

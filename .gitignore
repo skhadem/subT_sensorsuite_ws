@@ -5,4 +5,5 @@ src/sweep_ros
 src/urg_node
 build/
 devel/
+bag/
 imgui.ini

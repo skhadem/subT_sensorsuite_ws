@@ -1,4 +1,0 @@
-<launch>
-    <node pkg="rosbag" type="record" name="record_sensors"
-      args=" -o ~/bag/ /tf /" />
-</launch>
