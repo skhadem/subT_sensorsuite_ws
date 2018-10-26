@@ -1,4 +1,7 @@
 - git:
+    local-name: phidgets_drivers
+    uri: https://github.com/ros-drivers/phidgets_drivers.git
+- git:
     local-name: serial
     uri: https://github.com/wjwwood/serial.git
 - git:

@@ -1,0 +1,13 @@
+<launch>
+  <!-- launch the imu and madgwick fuilter -->
+  <!--include file="$(find phidgets_imu)/launch/imu.launch"/-->
+
+  <node pkg="phidgets_imu" type="phidgets_imu_node" name="imu_node" output="screen">
+    <param name="period" value="4" />
+  </node>
+
+  <node pkg="robot_localization" type="ekf_localization_node" name="ekf" clear_params="true">
+    <rosparam command="load" file="$(find imu_localization)/launch/ekf_template.yaml"/>
+  </node>
+
+</launch>

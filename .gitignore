@@ -3,6 +3,7 @@ src/serial
 src/ti_mmwave_rospkg
 src/sweep_ros
 src/urg_node
+src/phidgets_drivers
 build/
 devel/
 bag/
