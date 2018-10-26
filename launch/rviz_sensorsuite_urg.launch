@@ -27,7 +27,7 @@
     <arg name="enable_pointcloud" value="true"/>
   </include>
 
-  <include file="$find(static_tfs)/launch/transforms.launch">
+  <include file="$(find static_tfs)/launch/transforms.launch">
     <arg name="radar" value="$(arg radar)"/>
     <arg name="lidar" value="$(arg lidar)"/>
     <arg name="camera" value="$(arg camera)"/>
