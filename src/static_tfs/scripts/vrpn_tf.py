@@ -11,12 +11,6 @@ from visualization_msgs.msg import Marker
 transform = tf.TransformBroadcaster()
 pc_pub = rospy.Publisher("/mmWave_repub", PointCloud2, queue_size=10)
 
-# pose1_pub = rospy.Publisher("/pose1", PoseStamped, queue_size=10)
-# pose2_pub = rospy.Publisher("/pose2", PoseStamped, queue_size=10)
-# pose3_pub = rospy.Publisher("/pose3", PoseStamped, queue_size=10)
-# pose4_pub = rospy.Publisher("/pose4", PoseStamped, queue_size=10)
-# pose5_pub = rospy.Publisher("/pose5", PoseStamped, queue_size=10)
-
 marker1_pub = rospy.Publisher("/marker1", Marker, queue_size=10)
 marker2_pub = rospy.Publisher("/marker2", Marker, queue_size=10)
 marker3_pub = rospy.Publisher("/marker3", Marker, queue_size=10)
@@ -50,35 +44,6 @@ def pt_cloud_repub(msg):
 def object_pose_pub():
     r = rospy.Rate(10) # 10 Hz
     while not rospy.is_shutdown():
-
-        # pose = PoseStamped()
-        # pose.header.stamp = rospy.Time(0)
-        # pose.header.frame_id = "world"
-        #
-        # pose.pose.position.x = -1.341
-        # pose.pose.position.y = 1.676
-        # pose.pose.position.z = 4
-        # pose1_pub.publish(pose)
-        #
-        # pose.pose.position.x = 0.88
-        # pose.pose.position.y = -0.782
-        # pose.pose.position.z = 4
-        # pose2_pub.publish(pose)
-        #
-        # pose.pose.position.x = 3.629
-        # pose.pose.position.y = 1.636
-        # pose.pose.position.z = 4
-        # pose3_pub.publish(pose)
-        #
-        # pose.pose.position.x = 5.783
-        # pose.pose.position.y = -1.043
-        # pose.pose.position.z = 4
-        # pose4_pub.publish(pose)
-        #
-        # pose.pose.position.x = 8.257
-        # pose.pose.position.y = 1.306
-        # pose.pose.position.z = 4
-        # pose5_pub.publish(pose)
 
         marker = Marker()
         marker.header.stamp = rospy.Time(0)
