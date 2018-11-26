@@ -9,20 +9,13 @@ from sensor_msgs.msg import PointCloud2
 from visualization_msgs.msg import Marker
 
 transform = tf.TransformBroadcaster()
-pc_pub = rospy.Publisher("/mmWave_repub", PointCloud2, queue_size=10)
-
-marker1_pub = rospy.Publisher("/marker1", Marker, queue_size=10)
-marker2_pub = rospy.Publisher("/marker2", Marker, queue_size=10)
-marker3_pub = rospy.Publisher("/marker3", Marker, queue_size=10)
-marker4_pub = rospy.Publisher("/marker4", Marker, queue_size=10)
-marker5_pub = rospy.Publisher("/marker5", Marker, queue_size=10)
-marker6_pub = rospy.Publisher("/marker6", Marker, queue_size=10)
+truth_pose_pub = rospy.Publisher("/truth_pose", PoseStamped, queue_size=10)
 
 def pose_repub(msg):
     t = TransformStamped()
-    t.child_frame_id = "base_link"
+    t.child_frame_id = "base_link_truth"
     t.header.stamp = rospy.Time(0)
-    t.header.frame_id = msg.header.frame_id
+    t.header.frame_id = "odom"
 
     t.transform.translation.x = msg.pose.position.x
     t.transform.translation.y = msg.pose.position.y
@@ -35,11 +28,22 @@ def pose_repub(msg):
 
     transform.sendTransformMessage(t)
 
+    msg.header.frame_id = "odom"
+    truth_pose_pub.publish(msg)
+
+pc_pub = rospy.Publisher("/mmWave_repub", PointCloud2, queue_size=10)
+
 def pt_cloud_repub(msg):
-    msg.header.frame_id = "base_link"
+    msg.header.frame_id = "base_link_truth"
     msg.header.stamp = rospy.Time(0)
     pc_pub.publish(msg)
 
+marker1_pub = rospy.Publisher("/marker1", Marker, queue_size=10)
+marker2_pub = rospy.Publisher("/marker2", Marker, queue_size=10)
+marker3_pub = rospy.Publisher("/marker3", Marker, queue_size=10)
+marker4_pub = rospy.Publisher("/marker4", Marker, queue_size=10)
+marker5_pub = rospy.Publisher("/marker5", Marker, queue_size=10)
+marker6_pub = rospy.Publisher("/marker6", Marker, queue_size=10)
 
 def object_pose_pub():
     r = rospy.Rate(10) # 10 Hz
@@ -47,7 +51,7 @@ def object_pose_pub():
 
         marker = Marker()
         marker.header.stamp = rospy.Time(0)
-        marker.header.frame_id = "world"
+        marker.header.frame_id = "odom"
         marker.ns = "objects"
         marker.action = Marker.ADD
         marker.lifetime = rospy.Duration()
@@ -121,9 +125,9 @@ if __name__ == '__main__':
     p = rospy.Subscriber(pose_topic, PoseStamped, pose_repub)
     p1 = rospy.Subscriber(pt_cloud_topic, PointCloud2, pt_cloud_repub)
 
+
     rospy.loginfo("Subscribing to %s"%pose_topic)
     rospy.loginfo("Subscribing to %s"%pt_cloud_topic)
-    # rospy.loginfo("Publishing static poses[1-5]")
     rospy.loginfo("Publishing static markers[1-6]")
 
     try:
