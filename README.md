@@ -65,7 +65,7 @@ To go back to BARlab, have to comment out last 4 lines of /etc/network/interface
 To go back to Access point mode, uncomment last 4 lines of /etc/network/interface and then reboot
 
 ## TODO: 
-- [] make internet somehow
-- [] easy switching between BARlab and access point mode
-- [] hostname when in access point mode
+- [ ] make internet somehow
+- [ ] easy switching between BARlab and access point mode
+- [ ] hostname when in access point mode
 
