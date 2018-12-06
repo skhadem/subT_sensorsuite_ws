@@ -2,7 +2,7 @@
 
 This is the top-level catkin ws for the subT sensor suite.  
 
-To initialize the workspace using [wstool](wiki.ros.org/wstool):
+To initialize the workspace using [wstool](http://wiki.ros.org/wstool):
 
 ```
 mkdir src
