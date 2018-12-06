@@ -1,0 +1,11 @@
+<launch>
+  <arg name="radar_0" default="true" doc="forward facing radar"/>
+  <arg name="radar_1" default="false" doc="lateral facing radar"/>
+
+  <!-- transform for forward facing radar0 -->
+  <node if="$(arg radar_0)" pkg="tf" type="static_transform_publisher" name="radar0_base_tf" args="0 0 0 0 0 0 base_link radar0_link 10"/>
+
+  <!-- transform for lateral facing radar1 -->
+  <node if="$(arg radar_1)" pkg="tf" type="static_transform_publisher" name="laser1_base_tf" args="0 0 0 -1.570796 0 0 base_link radar1_link 10"/>
+
+</launch>
