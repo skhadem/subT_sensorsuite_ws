@@ -14,6 +14,7 @@
   <arg name="radar" default="true"/>
   <arg name="lidar" default="true"/>
   <arg name="camera" default="false"/>
+  <arg name="imu" default="true"/>
 
   <arg name="radar_name_0" default="radar_fwd" doc="forward facing radar"/>
   <arg name="radar_name_1" default="radar_lat" doc="lateral facing radar"/>
