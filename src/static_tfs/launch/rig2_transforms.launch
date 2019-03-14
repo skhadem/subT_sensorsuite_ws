@@ -1,0 +1,20 @@
+<launch>
+  <arg name="radar" default="true"/>
+  <arg name="lidar" default="true"/>
+  <arg name="camera" default="true"/>
+
+  <arg name="radar_name_0" default="radar_fwd" doc="forward facing radar"/>
+  <arg name="radar_name_1" default="radar_lat" doc="lateral facing radar"/>
+  <arg name="realsense_name_0" default="camera" doc="forward facing realsense"/>
+
+  <!-- transform for forward facing radar0 to base_link -->
+  <node if="$(arg radar)" pkg="tf" type="static_transform_publisher" name="$(arg radar_name_0)_base_tf" args="0.100 -0.003 -0.022 0 0 0 base_link $(arg radar_name_0)_link 10"/>
+
+  <!-- transform for lateral facing radar1 to base_link -->
+  <node if="$(arg radar)" pkg="tf" type="static_transform_publisher" name="$(arg radar_name_1)_base_tf" args="0.003 -0.075 -0.022 -1.570796 0 0 base_link $(arg radar_name_1)_link 10"/>
+
+  <node if="$(arg lidar)" pkg="tf" type="static_transform_publisher" name="laser_base_tf" args="0 0 0.055 -1.570796 0 0 base_link laser 10" />
+  <node if="$(arg camera)" pkg="tf" type="static_transform_publisher" name="camera_base_tf" args="0.070 0 0.015 0 0 0 base_link camera_link 10"/>
+
+<!-- <node pkg="tf" type="static_transform_publisher" name="base_map_tf" args="0 0 0 0 0 0 map base_link 10"/> -->
+</launch>

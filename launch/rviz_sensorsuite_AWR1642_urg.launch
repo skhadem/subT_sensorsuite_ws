@@ -8,7 +8,7 @@
   <arg name="radar" default="true"/>
   <arg name="radar_device" default="1642"/>
   <arg name="lidar" default="true"/>
-  <arg name="camera" default="true"/>
+  <arg name="camera" default="false"/>
   <arg name="config" default="best_range_res"/>
   <arg name="rviz" default="true"/>
 
@@ -19,13 +19,16 @@
     <arg name="sdk" value="02_01_00_04" doc="AWR1642 only compatible with SDK v02_01_00_04.. unable to run SDK v01_02_00_05"/>
     <arg name="max_allowed_elevation_angle_deg" value="90" doc="Maximum allowed elevation angle in degrees for detected object data [0 > value >= 90]}"/>
     <arg name="max_allowed_azimuth_angle_deg" value="90" doc="Maximum allowed azimuth angle in degrees for detected object data [0 > value >= 90]}"/>
-    <arg name="command_port" value="/dev/serial/by-id/usb-Texas_Instruments_XDS110__02.03.00.14__Embed_with_CMSIS-DAP_R0041027-if00" />
-    <arg name="data_port" value="/dev/serial/by-id/usb-Texas_Instruments_XDS110__02.03.00.14__Embed_with_CMSIS-DAP_R0041027-if03" />
+    <arg name="command_port" default="/dev/ttyACM0" />
+    <arg name="data_port" default="/dev/ttyACM1" />
+    <!-- <arg name="command_port" value="/dev/serial/by-id/usb-Texas_Instruments_XDS110__02.03.00.14__Embed_with_CMSIS-DAP_R0041027-if00" /> -->
+    <!-- <arg name="data_port" value="/dev/serial/by-id/usb-Texas_Instruments_XDS110__02.03.00.14__Embed_with_CMSIS-DAP_R0041027-if03" /> -->
   </include>
 
   <!-- launch Hokuyo URG lidar node -->
-  <include if="$(arg lidar)" file="$(find urg_node)/launch/urg_lidar.launch"/>
-  <param name="/urg_node/serial_port" value="/dev/serial/by-id/usb-Hokuyo_Data_Flex_for_USB_URG-Series_USB_Driver-if00"/>
+  <include if="$(arg lidar)" file="$(find urg_node)/launch/urg_lidar.launch">
+    <param name="/urg_node/serial_port" value="/dev/serial/by-id/usb-Hokuyo_Data_Flex_for_USB_URG-Series_USB_Driver-if00"/>
+  </include>
 
   <!-- launch realsense camera node -->
   <include if="$(arg camera)" file="$(find realsense2_camera)/launch/rs_camera.launch">

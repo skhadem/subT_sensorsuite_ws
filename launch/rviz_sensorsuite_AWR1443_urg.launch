@@ -24,8 +24,9 @@
   </include>
 
   <!-- launch Hokuyo URG lidar node -->
-  <include if="$(arg lidar)" file="$(find urg_node)/launch/urg_lidar.launch"/>
-  <param name="/urg_node/serial_port" value="/dev/serial/by-id/usb-Hokuyo_Data_Flex_for_USB_URG-Series_USB_Driver-if00"/>
+  <include if="$(arg lidar)" file="$(find urg_node)/launch/urg_lidar.launch">
+    <param name="/urg_node/serial_port" value="/dev/serial/by-id/usb-Hokuyo_Data_Flex_for_USB_URG-Series_USB_Driver-if00"/>
+  </include>
 
   <!-- launch realsense camera node -->
   <include if="$(arg camera)" file="$(find realsense2_camera)/launch/rs_camera.launch">
