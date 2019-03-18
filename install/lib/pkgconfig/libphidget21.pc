@@ -1,0 +1,8 @@
+prefix=/home/ohrad/ROS/subT_sensorsuite_ws/install
+
+Name: libphidget21
+Description: Description of libphidget21
+Version: 0.7.7
+Cflags: 
+Libs: -L/home/ohrad/ROS/subT_sensorsuite_ws/install/lib 
+Requires: 

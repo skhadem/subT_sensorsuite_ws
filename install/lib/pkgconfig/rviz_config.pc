@@ -1,0 +1,8 @@
+prefix=/home/ohrad/ROS/subT_sensorsuite_ws/install
+
+Name: rviz_config
+Description: Description of rviz_config
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/ohrad/ROS/subT_sensorsuite_ws/install/lib 
+Requires: 

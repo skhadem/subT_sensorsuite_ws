@@ -1,0 +1,15 @@
+<launch>
+    <arg name="name" doc="specify the name of the bag file to be saved" />
+    
+    <node pkg="rosbag" type="record" name="record_sensors"
+      args="record -O /home/ohrad/Data/subT/radar-rig/hidee/$(arg name)
+      /tf
+      /tf_static
+      /radar_fwd/mmWaveDataHdl/RScan
+      /radar_fwd/twist_estimate
+      /radar_lat/mmWaveDataHdl/RScan
+      /radar_lat/twist_estimate
+      /scan
+      /imu/data_raw
+      /imu/data" />
+</launch>

@@ -1,0 +1,8 @@
+prefix=/home/ohrad/ROS/subT_sensorsuite_ws/install
+
+Name: phidgets_api
+Description: Description of phidgets_api
+Version: 0.7.7
+Cflags: -I/home/ohrad/ROS/subT_sensorsuite_ws/install/include
+Libs: -L/home/ohrad/ROS/subT_sensorsuite_ws/install/lib -lphidgets_api
+Requires: libphidget21

@@ -1,0 +1,8 @@
+prefix=/home/ohrad/ROS/subT_sensorsuite_ws/install
+
+Name: static_tfs
+Description: Description of static_tfs
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/ohrad/ROS/subT_sensorsuite_ws/install/lib 
+Requires: 
