@@ -2,7 +2,7 @@
     <arg name="name" doc="specify the name of the bag file to be saved" />
 
     <node pkg="rosbag" type="record" name="record_sensors"
-      args="record -O /home/ohrad/Data/subT/radar-rig/hidee_2019-06-26/$(arg name)
+      args="record -O /home/ohrad/Data/subT/radar-rig/outdoors_2019-07-02/$(arg name)
       /tf
       /tf_static
       /radar_fwd/mmWaveDataHdl/RScan
@@ -12,7 +12,8 @@
       /scan
       /imu/data_raw
       /imu/data
-      /camera/infra1/image_rect_raw
-      /camera/infra2/image_rect_raw
-      /camera/depth/color/points"/>
+      /camera/depth/image_rect_raw
+      /camera/color/image_raw
+      /vrpn_client_node/radar_rig/pose
+      /vrpn_client_node/radar_rig/twist"/>
 </launch>

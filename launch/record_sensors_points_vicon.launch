@@ -1,4 +1,0 @@
-<launch>
-    <node pkg="rosbag" type="record" name="record_sensors"
-      args="record --duration=60 -O /home/carl/ROS/subT_sensorsuite_ws/bag/$(arg name) /tf /tf_static /mmWaveDataHdl/RScan /scan /camera/depth/color/points /vrpn_client_node/Wand/pose /vrpn_client_node/radarsensors/pose" />
-</launch>
